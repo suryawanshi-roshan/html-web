@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Saffron Table serves vibrant Indian comfort food, fresh from our kitchen.">
+	<title>Saffron Table | Indian Kitchen</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #241d18;
+			--muted: #75695f;
+			--cream: #fbf6ee;
+			--paper: #fffdf9;
+			--saffron: #d96b28;
+			--saffron-dark: #a8451c;
+			--sage: #435848;
+			--line: #e8ded1;
+			--shadow: 0 18px 45px rgba(61, 40, 24, 0.12);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--ink); background: var(--cream); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+		img { display: block; max-width: 100%; }
+		a { color: inherit; text-decoration: none; }
+		.container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+
+		.site-header { position: absolute; z-index: 2; top: 0; width: 100%; color: #fff; }
+		.nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+		.brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; letter-spacing: .02em; }
+		.brand span { color: #f4ac64; }
+		.nav-links { display: flex; gap: 30px; align-items: center; font-size: .9rem; font-weight: 500; }
+		.nav-links a { opacity: .88; transition: opacity .2s, color .2s; }
+		.nav-links a:hover { color: #f4ac64; opacity: 1; }
+		.nav-cta { border: 1px solid rgba(255,255,255,.65); padding: 9px 17px; border-radius: 3px; }
+
+		.hero { min-height: 720px; display: grid; align-items: center; position: relative; color: #fff; background: linear-gradient(90deg, rgba(25,18,13,.82) 0%, rgba(25,18,13,.48) 48%, rgba(25,18,13,.2)), url('../Food-Junction-NEX-6.jpg') center/cover; }
+		.hero-content { padding: 150px 0 100px; max-width: 650px; animation: rise .7s ease both; }
+		.eyebrow { color: #f4ac64; font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+		h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.1; margin: 0; }
+		h1 { font-size: clamp(3.5rem, 8vw, 6.8rem); max-width: 720px; margin: 18px 0 23px; letter-spacing: -.04em; }
+		.hero p { max-width: 500px; color: #f6eee6; font-size: 1.08rem; }
+		.button { display: inline-block; padding: 13px 23px; margin-top: 20px; border-radius: 3px; background: var(--saffron); color: #fff; font-weight: 700; font-size: .9rem; transition: transform .2s, background .2s; }
+		.button:hover { background: var(--saffron-dark); transform: translateY(-2px); }
+		.button-light { margin-left: 10px; border: 1px solid rgba(255,255,255,.6); background: transparent; }
+		.button-light:hover { background: #fff; color: var(--ink); }
+
+		.intro { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px; padding: 110px 0; align-items: center; }
+		.intro-image { position: relative; }
+		.intro-image img { width: 100%; height: 390px; object-fit: cover; box-shadow: var(--shadow); }
+		.intro-image::after { content: ''; position: absolute; width: 92px; height: 92px; border: 2px solid var(--saffron); right: -18px; bottom: -18px; z-index: -1; }
+		.intro h2, .section-heading h2 { font-size: clamp(2.3rem, 4vw, 3.7rem); margin: 12px 0 20px; }
+		.intro p { color: var(--muted); max-width: 500px; }
+		.signature { margin-top: 28px; color: var(--sage); font-family: 'Playfair Display', serif; font-size: 1.35rem; }
+
+		.menu-section { padding: 100px 0 115px; background: var(--sage); color: #fff; }
+		.section-heading { text-align: center; margin-bottom: 48px; }
+		.section-heading .eyebrow { color: #f4ac64; }
+		.section-heading p { color: #d9e0d5; max-width: 530px; margin: 15px auto 0; }
+		.menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 19px; }
+		.menu-category + .menu-category { margin-top: 58px; }
+		.menu-category-title { display: flex; align-items: center; gap: 18px; margin: 0 0 22px; color: #f4ac64; font-size: 1.75rem; }
+		.menu-category-title::after { content: ''; height: 1px; flex: 1; background: rgba(255,255,255,.25); }
+		.menu-card { background: var(--paper); color: var(--ink); overflow: hidden; transition: transform .25s; }
+		.menu-card:hover { transform: translateY(-6px); }
+		.menu-card img { width: 100%; height: 205px; object-fit: cover; }
+		.menu-card-body { padding: 22px; }
+		.menu-card h3 { font-size: 1.35rem; }
+		.menu-card p { margin: 8px 0 18px; color: var(--muted); font-size: .9rem; }
+		.price { color: var(--saffron-dark); font-weight: 700; }
+
+		.about { padding: 110px 0; text-align: center; }
+		.about-copy { max-width: 710px; margin: auto; color: var(--muted); font-size: 1.08rem; }
+		.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+		.value { border-top: 1px solid var(--line); padding-top: 21px; text-align: left; }
+		.value strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 7px; }
+		.value p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+		.contact { background: #f0e7dc; padding: 85px 0; }
+		.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 75px; }
+		.contact h2 { font-size: 3rem; margin: 12px 0; }
+		.contact p { color: var(--muted); }
+		.contact-details { display: grid; grid-template-columns: 1fr 1fr; gap: 23px; margin-top: 27px; }
+		.contact-details strong { display: block; color: var(--sage); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
+		.contact-form { display: grid; gap: 13px; }
+		.contact-form input, .contact-form textarea { width: 100%; border: 1px solid #d8cabc; border-radius: 2px; padding: 13px 14px; background: var(--paper); color: var(--ink); font: inherit; }
+		.contact-form textarea { min-height: 112px; resize: vertical; }
+		.contact-form .button { border: 0; cursor: pointer; justify-self: start; }
+		footer { padding: 24px 0; background: var(--ink); color: #cfc4b9; text-align: center; font-size: .82rem; }
+
+		@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+		@media (max-width: 720px) {
+			.container { width: min(100% - 28px, 560px); }
+			.nav { align-items: flex-start; gap: 18px; }
+			.nav-links { flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; font-size: .78rem; }
+			.nav-cta { padding: 6px 10px; }
+			.hero { min-height: 650px; }
+			h1 { font-size: 3.8rem; }
+			.button-light { margin-left: 0; }
+			.intro, .contact-grid { grid-template-columns: 1fr; gap: 42px; padding: 75px 0; }
+			.intro-image img { height: 300px; }
+			.menu-section, .about { padding: 75px 0; }
+			.menu-grid, .values { grid-template-columns: 1fr; }
+			.contact-details { grid-template-columns: 1fr 1fr; }
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<div class="container nav">
+			<a class="brand" href="#home">Saffron <span>Table</span></a>
+			<nav class="nav-links" aria-label="Main navigation">
+				<a href="#home">Home</a>
+				<a href="#menu">Menu</a>
+				<a href="#about">About</a>
+				<a class="nav-cta" href="#contact">Reserve a table</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero" id="home">
+			<div class="container hero-content">
+				<span class="eyebrow">Indian kitchen · Pune</span>
+				<h1>Good food,<br>good stories.</h1>
+				<p>Thoughtful plates, bright spices and the kind of hospitality that makes a meal last a little longer.</p>
+				<a class="button" href="#menu">Explore the menu</a>
+				<a class="button button-light" href="#contact">Find us</a>
+			</div>
+		</section>
+
+		<section class="container intro" id="about">
+			<div class="intro-image"><img src="../food%20junction.jfif" alt="A colorful Indian restaurant dish"></div>
+			<div>
+				<span class="eyebrow">From our kitchen</span>
+				<h2>Rooted in tradition, made for today.</h2>
+				<p>At Saffron Table, recipes passed down through generations meet fresh, local ingredients. Every dish is cooked to order, layered with spice and served with a generous side of joy.</p>
+				<p>Come for a quick lunch, stay for the stories around the table.</p>
+				<div class="signature">Made with warmth, every day.</div>
+			</div>
+		</section>
+
+		<section class="menu-section" id="menu">
+			<div class="container">
+				<div class="section-heading"><span class="eyebrow">The good stuff</span><h2>Our menu</h2><p>Familiar favorites and bold new bites, prepared fresh from our kitchen.</p></div>
+				<div class="menu-category">
+					<h3 class="menu-category-title">Breakfast menu</h3>
+					<div class="menu-grid">
+						<article class="menu-card"><img src="../idali%20sambhar.jfif" alt="Idli sambar"><div class="menu-card-body"><h3>Soft idli sambar</h3><p>Steamed rice cakes with warm lentil sambar and coconut chutney.</p><span class="price">₹140</span></div></article>
+						<article class="menu-card"><img src="../upma.jfif" alt="Upma"><div class="menu-card-body"><h3>South Indian upma</h3><p>Lightly spiced semolina with vegetables, curry leaves and cashews.</p><span class="price">₹110</span></div></article>
+						<article class="menu-card"><img src="../phoha.jfif" alt="Poha"><div class="menu-card-body"><h3>Morning poha</h3><p>Fluffy flattened rice with peanuts, lemon, coriander and sev.</p><span class="price">₹100</span></div></article>
+						<article class="menu-card"><img src="../masala%20dhosa.jfif" alt="Masala dosa"><div class="menu-card-body"><h3>Classic masala dosa</h3><p>Golden rice crepe, spiced potato filling, sambar and chutney.</p><span class="price">₹160</span></div></article>
+					</div>
+				</div>
+				<div class="menu-category">
+					<h3 class="menu-category-title">Veg menu</h3>
+					<div class="menu-grid">
+						<article class="menu-card"><img src="../panner%20tikka.jfif" alt="Paneer tikka"><div class="menu-card-body"><h3>Charred paneer tikka</h3><p>Smoky cottage cheese, peppers and our house mint chutney.</p><span class="price">₹240</span></div></article>
+						<article class="menu-card"><img src="../biryani%20veg.jfif" alt="Vegetable biryani"><div class="menu-card-body"><h3>Vegetable biryani</h3><p>Seasonal vegetables, basmati rice, herbs and fried cashews.</p><span class="price">₹260</span></div></article>
+						<article class="menu-card"><img src="../pizza.jfif" alt="Freshly baked vegetable pizza"><div class="menu-card-body"><h3>Garden masala pizza</h3><p>Roasted vegetables, mozzarella and a fragrant coriander base.</p><span class="price">₹280</span></div></article>
+					</div>
+				</div>
+				<div class="menu-category">
+					<h3 class="menu-category-title">Non-veg menu</h3>
+					<div class="menu-grid">
+						<article class="menu-card"><img src="../chicken%20biryani.jfif" alt="Chicken biryani"><div class="menu-card-body"><h3>Royal chicken biryani</h3><p>Fragrant basmati, tender chicken, saffron and crispy onions.</p><span class="price">₹320</span></div></article>
+						<article class="menu-card"><img src="../chicken%20biryani.jfif" alt="Chicken masala"><div class="menu-card-body"><h3>Homestyle chicken masala</h3><p>Tender chicken simmered in a rich tomato and spice gravy.</p><span class="price">₹300</span></div></article>
+					</div>
+				</div>
+				<div class="menu-category">
+					<h3 class="menu-category-title">Drinks menu</h3>
+					<div class="menu-grid">
+						<article class="menu-card"><img src="https://fitfeastly.com/wp-content/uploads/2026/04/creamy-mango-lassi-recipe-2026-04-17-155201.webp" alt="Fresh mango lassi"><div class="menu-card-body"><h3>Fresh mango lassi</h3><p>Thick, creamy yogurt blended with sweet Alphonso mango.</p><span class="price">₹130</span></div></article>
+						<article class="menu-card"><img src="https://i.pinimg.com/736x/9c/76/64/9c7664e407027062d56c6e762f7c55e0.jpg" alt="Masala chai"><div class="menu-card-body"><h3>House masala chai</h3><p>Slow-brewed black tea with milk, ginger, cardamom and spice.</p><span class="price">₹70</span></div></article>
+						<article class="menu-card"><img src="https://thumbs.dreamstime.com/b/fresh-lime-soda-glass-drink-sliced-black-background-131421316.jpg" alt="Fresh lime soda"><div class="menu-card-body"><h3>Fresh lime soda</h3><p>Bright lime, chilled soda and a pinch of black salt.</p><span class="price">₹90</span></div></article>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about">
+			<div class="container">
+				<div class="section-heading"><span class="eyebrow">Why Saffron Table</span><h2>A table worth gathering around.</h2><p class="about-copy">We believe the best restaurants feel like a place you already know. A warm welcome, a favorite dish, and one more conversation before you leave.</p></div>
+				<div class="values"><div class="value"><strong>Fresh, always</strong><p>Seasonal produce and spices ground in small batches.</p></div><div class="value"><strong>Made to share</strong><p>Plates designed for passing across the table.</p></div><div class="value"><strong>Open-hearted</strong><p>Good food and genuine hospitality for every guest.</p></div></div>
+			</div>
+		</section>
+
+		<section class="contact" id="contact">
+			<div class="container contact-grid">
+				<div><span class="eyebrow">Come say hello</span><h2>Pull up a chair.</h2><p>We are ready when you are. Book a table, ask us anything, or simply drop in for dinner.</p><div class="contact-details"><div><strong>Visit</strong>21 Koregaon Park<br>Pune, Maharashtra</div><div><strong>Hours</strong>Mon–Sun<br>11:30 AM–11:00 PM</div><div><strong>Call</strong>+91 98765 43210</div><div><strong>Email</strong>hello@saffrontable.in</div></div></div>
+				<form class="contact-form"><input type="text" placeholder="Your name" aria-label="Your name" required><input type="email" placeholder="Email address" aria-label="Email address" required><textarea placeholder="Tell us about your reservation" aria-label="Reservation details"></textarea><button class="button" type="submit">Send enquiry</button></form>
+			</div>
+		</section>
+	</main>
+	<footer><div class="container">© 2026 Saffron Table · Good food, good stories.</div></footer>
+</body>
+</html>
